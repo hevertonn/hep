@@ -1,0 +1,56 @@
+cabal-version:      3.0
+
+name:               hep
+version:            0.1.0.0
+synopsis:           A grep tool written in Haskell.
+license:            MIT
+license-file:       LICENSE
+author:             Heverton Borges
+maintainer:         hb.hevertonborges@gmail.com
+copyright:          Heverton Borges
+
+build-type:         Simple
+
+extra-doc-files:    CHANGELOG.md
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+
+    exposed-modules:  Lib
+
+    build-depends:    base ^>=4.20.2.0
+
+    hs-source-dirs:   src
+
+    default-language: GHC2024
+
+executable hep
+    import:           warnings
+
+    main-is:          Main.hs
+
+    build-depends:
+        base ^>=4.20.2.0,
+        hep
+
+    hs-source-dirs:   app
+
+    default-language: GHC2024
+
+test-suite hep-test
+    import:           warnings
+
+    default-language: GHC2024
+
+    type:             exitcode-stdio-1.0
+
+    hs-source-dirs:   test
+
+    main-is:          Main.hs
+
+    build-depends:
+        base ^>=4.20.2.0,
+        hep
